@@ -87,7 +87,7 @@ wire[7:0] mem_o = SRAM_DQ[7:0];
 wire[7:0] rom_o;
 
 assign SRAM_DQ[7:0]  = SRAM_WE_N ? 8'bZZZZZZZZ : cpu_o;
-assign SRAM_ADDR = vid_rd ? {3'b000000,vid_addr[14:0]} : {3'b000000,addrbus[14:0]};
+assign SRAM_ADDR = vid_rd ? {6'b000000,vid_addr[14:0]} : {6'b000000,addrbus[14:0]};
 assign SRAM_WE_N = vid_rd ? 1'b1 : cpu_wr_n|addrbus[15]|hlda;
 
 biossd rom(.clka(clk50), .addra({addrbus[11]|startup,addrbus[10:0]}), .douta(rom_o));
