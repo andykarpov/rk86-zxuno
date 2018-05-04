@@ -27,6 +27,7 @@ module radio86rk(
    inout    [7:0]    SRAM_DQ,    // SRAM Data bus 8 Bits
    output   [20:0]   SRAM_ADDR,  // SRAM Address bus 21 Bits
    output            SRAM_WE_N,  // SRAM Write Enable
+	output 				SRAM_CE_N,  // SRAM Chip Enable
 
    output            SOUND_L,
    output            SOUND_R,
@@ -52,6 +53,7 @@ module radio86rk(
 
 assign STD_N = 1'b0; 
 assign STD_B_N = 1'b1; 
+assign SRAM_CE_N = 1'b0;
 
 reg startup;
 reg tapein = 1'b0;
